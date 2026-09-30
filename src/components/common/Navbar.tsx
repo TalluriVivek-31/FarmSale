@@ -14,7 +14,8 @@ import {
   ChevronDown,
   LogOut,
   LogIn,
-  UserPlus
+  UserPlus,
+  RotateCcw
 } from 'lucide-react';
 import { useAppState, AppViewTab } from '../../context/AppStateContext';
 import { useRole } from '../../context/RoleContext';
@@ -36,7 +37,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenNotifications }) => {
   } = useAppState();
 
   const { activeRole, switchRole } = useRole();
-  const { user, isAuthenticated, logout, loginAsTestUser } = useAuth();
+  const { user, isAuthenticated, logout, loginAsTestUser, resetDataToFresh } = useAuth();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [roleDropdownOpen, setRoleDropdownOpen] = useState(false);
 
@@ -115,7 +116,20 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenNotifications }) => {
           </span>
         </div>
 
-        <div className="flex items-center gap-2.5">
+        <div className="flex items-center gap-2">
+          <button
+            onClick={async () => {
+              if (window.confirm('Reset all entered data and restore the platform to a completely fresh state?')) {
+                await resetDataToFresh();
+              }
+            }}
+            className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-white/10 hover:bg-white/20 text-emerald-100 font-semibold border border-white/20 text-[11px] transition-colors"
+            title="Wipe entered test data and restore fresh baseline"
+          >
+            <RotateCcw className="w-3 h-3 text-emerald-300" />
+            <span>Reset to Fresh</span>
+          </button>
+
           <button
             onClick={() => setDemoModalOpen(true)}
             className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-200 font-bold border border-emerald-400/40 text-[11px] transition-colors shadow-xs"
@@ -319,6 +333,21 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenNotifications }) => {
                         </button>
                       </div>
                     )}
+
+                    <div className="pt-1.5 border-t border-gray-100">
+                      <button
+                        onClick={async () => {
+                          setRoleDropdownOpen(false);
+                          if (window.confirm('Reset all entered data and restore the platform to a completely fresh state?')) {
+                            await resetDataToFresh();
+                          }
+                        }}
+                        className="w-full flex items-center justify-center gap-1.5 px-2.5 py-1.5 text-[11px] text-gray-500 hover:text-rose-700 hover:bg-rose-50 rounded-lg font-medium transition-colors"
+                      >
+                        <RotateCcw className="w-3 h-3" />
+                        <span>Reset Data to Fresh State</span>
+                      </button>
+                    </div>
                   </div>
                 </div>
               )}

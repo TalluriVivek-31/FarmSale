@@ -20,6 +20,7 @@ interface AuthContextType {
   logout: () => void;
   updateUserProfile: (profileData: any) => void;
   loginAsTestUser: (role: UserRole) => Promise<void>;
+  resetDataToFresh: () => Promise<void>;
   loading: boolean;
 }
 
@@ -124,6 +125,19 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     await login(roleEmails[role], 'FarmSale@2026');
   };
 
+  const resetDataToFresh = async () => {
+    try {
+      await fetch('/api/auth/reset-data', { method: 'POST' });
+    } catch (e) {
+      console.error('Failed to reset backend data', e);
+    }
+    localStorage.removeItem('farmsale_user');
+    localStorage.removeItem('farmsale_token');
+    setUser(null);
+    setToken(null);
+    window.location.reload();
+  };
+
   return (
     <AuthContext.Provider
       value={{
@@ -135,6 +149,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         logout,
         updateUserProfile,
         loginAsTestUser,
+        resetDataToFresh,
         loading
       }}
     >

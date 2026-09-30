@@ -3,7 +3,7 @@
     {
       "id": "user-farmer-001",
       "email": "farmer.ramesh@farmsale.in",
-      "passwordHash": "$2b$10$qKux6XJTDZK5yzULdOkMfObSH85M8fnX4TuP2.x2CculM5gc78fuC",
+      "passwordHash": "$2b$10$G86E4if33nJ9.CmEF7KG2OYoYlvyPIwoZbIBwzROS8ZAS/TEOB65a",
       "role": "farmer",
       "name": "Ramesh Patel",
       "phone": "+91 98220 41209",
@@ -12,7 +12,7 @@
     {
       "id": "user-buyer-001",
       "email": "buyer.procurement@sahyadrifoods.com",
-      "passwordHash": "$2b$10$qKux6XJTDZK5yzULdOkMfObSH85M8fnX4TuP2.x2CculM5gc78fuC",
+      "passwordHash": "$2b$10$G86E4if33nJ9.CmEF7KG2OYoYlvyPIwoZbIBwzROS8ZAS/TEOB65a",
       "role": "buyer",
       "name": "Sahyadri Foods Procurement",
       "phone": "+91 253 289400",
@@ -21,7 +21,7 @@
     {
       "id": "user-fpo-001",
       "email": "contact@sahyadrifpo.org",
-      "passwordHash": "$2b$10$qKux6XJTDZK5yzULdOkMfObSH85M8fnX4TuP2.x2CculM5gc78fuC",
+      "passwordHash": "$2b$10$G86E4if33nJ9.CmEF7KG2OYoYlvyPIwoZbIBwzROS8ZAS/TEOB65a",
       "role": "fpo",
       "name": "Sahyadri Agri Farmers Cooperative",
       "phone": "+91 255 241100",
@@ -30,7 +30,7 @@
     {
       "id": "user-admin-001",
       "email": "admin.cell@farmsale.gov.in",
-      "passwordHash": "$2b$10$qKux6XJTDZK5yzULdOkMfObSH85M8fnX4TuP2.x2CculM5gc78fuC",
+      "passwordHash": "$2b$10$G86E4if33nJ9.CmEF7KG2OYoYlvyPIwoZbIBwzROS8ZAS/TEOB65a",
       "role": "admin",
       "name": "State Agricultural Intelligence Cell",
       "phone": "+91 22 22020101",

@@ -153,3 +153,13 @@ authRouter.get('/test-accounts', (_req: Request, res: Response) => {
   }));
   return res.json({ testAccounts: testUsers });
 });
+
+// Reset all entered data to fresh baseline
+authRouter.post('/reset-data', (_req: Request, res: Response) => {
+  db.resetToFresh();
+  return res.json({
+    success: true,
+    message: 'All entered data has been removed. Platform reset to fresh baseline.'
+  });
+});
+

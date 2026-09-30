@@ -247,6 +247,17 @@ class Database {
     return this.data;
   }
 
+  public reload(): DatabaseSchema {
+    this.data = this.load();
+    return this.data;
+  }
+
+  public resetToFresh(): DatabaseSchema {
+    this.data = this.getInitialSchema();
+    this.saveDirect(this.data);
+    return this.data;
+  }
+
   private getInitialSchema(): DatabaseSchema {
     // Seed controlled test accounts and baseline infrastructure for evaluation
     const passwordHash = bcrypt.hashSync('FarmSale@2026', 10);
